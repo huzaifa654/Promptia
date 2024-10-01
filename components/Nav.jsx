@@ -10,7 +10,6 @@ const Nav = () => {
 
     const IsUserLoggedIn = true;
     const [providers, setProvider] = useState(null)
-    console.log("providers?.google===========", providers?.google)
     const [Toggle, setToggle] = useState(false)
     const setUpProviders = async () => {
         const response = await getProviders();
