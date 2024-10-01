@@ -7,7 +7,6 @@ import React, { useEffect, useState } from 'react'
 
 const Nav = () => {
     const { data: session } = useSession();
-    console.log("session-------------", session?.user)
 
     const IsUserLoggedIn = true;
     const [providers, setProvider] = useState(null)
