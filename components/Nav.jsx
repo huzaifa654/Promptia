@@ -1,11 +1,14 @@
 'use client';
 import { get } from 'mongoose';
-import { getProviders, signIn, signOut } from 'next-auth/react';
+import { getProviders, signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 const Nav = () => {
+    const { data: session } = useSession();
+    console.log("session-------------", session)
+
     const IsUserLoggedIn = true;
     const [providers, setProvider] = useState(null)
     const [Toggle, setToggle] = useState(false)
