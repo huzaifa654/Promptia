@@ -7,17 +7,17 @@ import React, { useEffect, useState } from 'react'
 
 const Nav = () => {
     const { data: session } = useSession();
-    console.log("session-------------", session)
+    console.log("session-------------", session?.user)
 
     const IsUserLoggedIn = true;
     const [providers, setProvider] = useState(null)
     const [Toggle, setToggle] = useState(false)
-    const setProviders = async () => {
+    const setUpProviders = async () => {
         const response = await getProviders();
         setProvider(response)
     }
     useEffect(() => {
-        setProviders()
+        setUpProviders()
     }, [])
 
     return (
@@ -62,7 +62,7 @@ const Nav = () => {
 
             {/* Mobile Navigation */}
             <div className='sm:hidden flex relative'>
-                {IsUserLoggedIn ?
+                {session?.user ?
                     <div className="flex">
                         <Image
                             src={'/assets/images/logo.svg'}
