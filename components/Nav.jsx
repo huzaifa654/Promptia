@@ -7,8 +7,7 @@ import React, { useEffect, useState } from 'react'
 
 const Nav = () => {
     const { data: session } = useSession();
-
-    const IsUserLoggedIn = true;
+    console.log("session------------", session)
     const [providers, setProvider] = useState(null)
     const [Toggle, setToggle] = useState(false)
     const setUpProviders = async () => {
@@ -37,7 +36,12 @@ const Nav = () => {
                         <Link href={'/craete-prompt'} className='black_btn'>Create Post</Link>
                         <button type='button' className='outline_btn' onClick={signOut}>Sign Out</button>
                         <Link href={'/profile'}>
-                            <Image src={'/assets/images/logo.svg'} width={37} height={37} className='rounded-full' alt='profile' />
+                            <Image
+                                src={session?.user?.image}
+                                width={37}
+                                height={37}
+                                className='rounded-full'
+                                alt='profile' />
                         </Link>
                     </div>
                 ) : (
