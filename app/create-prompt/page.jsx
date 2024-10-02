@@ -10,6 +10,14 @@ const CreatePromopt = () => {
     })
 
     const createPrompt = async (e) => {
+        e?.preventDefault();
+        setSumbit(true);
+        try {
+            
+        } catch (error) {
+            
+        }
+
 
     }
     return (
