@@ -1,18 +1,25 @@
 'use client';
 import React, { useState } from 'react'
+import Form from "../../components/Form"
 
 const CreatePromopt = () => {
     const [sumbit, setSumbit] = useState(false);
-    const [ost, setPost] = useState({
+    const [post, setPost] = useState({
         prompt: '',
         tag: ''
     })
 
-    const createPrompt=async(e)=>{
+    const createPrompt = async (e) => {
 
     }
     return (
-        <div>CreatePromopt</div>
+        <Form
+            type={"Create"}
+            post={post}
+            setPost={setPost}
+            sumbit={sumbit}
+            handleSubmit={createPrompt}
+        />
     )
 }
 
