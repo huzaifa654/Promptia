@@ -15,16 +15,6 @@ const CreatePrompt = () => {
         tag: ''
     });
 
-    const PromptCardList=({data,handleClick})=>{
-        return(
-            <div className='mt-16 prompt_layout'>
-                {data.map((post)=>{
-
-                })}
-            </div>
-        )
-
-    }
 
     const createPrompt = async (e) => {
         e?.preventDefault();
