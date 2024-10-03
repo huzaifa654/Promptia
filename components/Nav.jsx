@@ -66,7 +66,7 @@ const Nav = () => {
                 {session?.user ?
                     <div className="flex">
                         <Image
-                            src={'/assets/images/logo.svg'}
+                            src={session?.user?.image}
                             width={37}
                             height={37}
                             className='rounded-full'
@@ -81,7 +81,7 @@ const Nav = () => {
                                     onClick={() => setToggle(false)}
                                 >My Profile</Link>
                                 <Link
-                                    href={'/craete-prompt'}
+                                    href={'/create-prompt'}
                                     className='dropdown_link'
                                     onClick={() => setToggle(false)}
                                 >Craete Prompt</Link>
