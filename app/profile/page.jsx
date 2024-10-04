@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react'
 const MyProfile = () => {
     const { data: session } = useSession();
     const [Posts, setPosts] = useState([])
+    console.log("Posts-----------", Posts)
     const handleEdit = () => {
 
     }

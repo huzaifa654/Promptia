@@ -1,5 +1,6 @@
 'use c'
 import React from 'react'
+import PromoptCard from './PromoptCard'
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
   return (
@@ -8,6 +9,16 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
         <span className='blue_gradient'>{name} Profile</span>
       </h1>
       <p className='desc text-left'>{desc}</p>
+      <div className='prompt_layout'>
+        {data.map((post) => (
+          <PromoptCard
+            key={post?._id}
+            post={post}
+            handleEdit={() => handleEdit && handleEdit(post)}
+            handleDelete={() => handleDelete && handleDelete(post)}
+          />
+        ))}
+      </div>
     </section>
   )
 }

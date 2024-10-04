@@ -1,6 +1,6 @@
 // app/api/prompt/new/route.js
-import Prompt from '../../../models/prompt';
-import { connectToDb } from '../../../utils/database';
+import Prompt from '../../../../../models/prompt';
+import { connectToDb } from '../../../../../utils/database';
 
 export const GET = async (req, params) => {
 
