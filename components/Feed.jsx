@@ -3,15 +3,16 @@ import React, { useEffect, useState } from 'react'
 import PromoptCard from '../components/PromoptCard'
 
 const PromptCardList = ({ data, handleTagClick }) => {
+    console.log("PromptCardList data========", data)
     return (
-        <div className='mt-16 prompt_layout'>
-            {data.map((post) => {
+        <div className='prompt_layout'>
+            {data.map((post) => (
                 <PromoptCard
                     key={post?._id}
                     post={post}
                     handleTagClick={handleTagClick}
                 />
-            })}
+            ))}
         </div>
     )
 }
@@ -19,7 +20,6 @@ const PromptCardList = ({ data, handleTagClick }) => {
 const Feed = () => {
     const [SearchText, setSearchText] = useState('');
     const [Posts, setPosts] = useState([]);
-
     const handleSearchText = (e) => {
         setSearchText(e?.target?.value)
     }
