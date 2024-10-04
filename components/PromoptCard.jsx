@@ -1,13 +1,18 @@
 'use client'
-import Image from 'next/image'
 import React, { useState } from 'react'
-import { copy } from "../app/assets/icons/copy.svg"
-import { tick } from "../app/assets/icons/tick.svg"
+import Image from 'next/image'
 
 
 const PromoptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState()
-  console.log("PromoptCardrd=============", post)  
+  const handleCopy = () => {
+    setCopied(post?.prompt)
+    navigator.clipboard.writeText(post?.prompt);
+    setTimeout(() => {
+      setCopied("")
+    }, 3000);
+
+  }
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
@@ -24,14 +29,18 @@ const PromoptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             <p className='font-inter text-sm text-gray-500'>{post?.creator?.email}</p>
           </div>
         </div>
-        <div className='copy_btn' onClick={() => { }}>
+        <div className='copy_btn' onClick={handleCopy}>
           <Image
-            src={copied == post?.prompt ? tick : copy}
-            width={12}
-            height={12}
+            src={copied == post?.prompt ? "/assets/icons/tick.svg" : "/assets/icons/copy.svg"}
+            alt="copy icon"
+            width={15}
+            height={15}
           />
+
         </div>
       </div>
+      <p className='my-4 font-satoshi text-sm text-gray-700'>{post?.prompt}</p>
+      <p className='font-inter text-sm blue_gradient cursor-pointer' onClick={() => handleTagClick && handleTagClick(post?.tag)}>{post?.tag}</p>
     </div>
   )
 }
